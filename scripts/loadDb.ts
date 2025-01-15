@@ -20,7 +20,9 @@ const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 const f1Data = [ 
     "https://en.wikipedia.org/wiki/Formula_One",
-    "https://www.formula1.com/en/latest/all"
+    "https://www.formula1.com/en/latest/all",
+    "https://www.formula1.com/en/results.html/2024/races.html",
+    "https://www.formula1.com/en/racing/2024.html"
 ]
 
 
@@ -69,10 +71,10 @@ const loadSampleData = async () => {
 
 const scrapePage = async (url: string) => {
     const loader = new PuppeteerWebBaseLoader(url, {
-        launchOptions: {
+         launchOptions: {
             headless: true
         },
-        goToOptions: {
+        gotoOptions: {
             waitUntil: "domcontentloaded"
         },
         evaluate: async (page, browser) => {
